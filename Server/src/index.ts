@@ -1,12 +1,13 @@
+import cors from 'cors';
 import express from 'express';
 
+import { VideoController } from './controllers/video.controller';
+
 const app = express();
+app.use(cors());
 const port = 8080; // default port to listen
 
-// define a route handler for the default home page
-app.get("/", ( req, res ) => {
-    res.sendFile(__dirname + "/index.html");
-});
+VideoController(app);
 
 // start the Express server
 app.listen(port, () => {
