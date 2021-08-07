@@ -6,7 +6,13 @@ export class VideoRepository {
         const formData = new FormData();
         formData.append('video', video);
 
-        await APIclient.post('video', formData);
+        const response = await APIclient.post('video', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            }
+        });
+
+        
         
     }
 }

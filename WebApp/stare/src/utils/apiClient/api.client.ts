@@ -8,8 +8,6 @@ const client = axios.create({
 });
 
 export class APIclient {
-    
-
     public static async get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
         return client.get<T>(`/${url}`, config);
     }

@@ -3,7 +3,9 @@ import { Express, Request, Response } from 'express';
 import fileStream from 'fs';
 import multer from 'multer';
 
-export function VideoController(app: Express): void {
+import { DbClient } from '../utils/db.client';
+
+export function VideoController(app: Express, dbClient: DbClient): void {
     app.get('/video', ( request: Request, response: Response ) => {
         const path = 'videos/Video.mp4';
         const range = request.headers.range;
